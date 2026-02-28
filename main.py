@@ -27,7 +27,7 @@ def countWords(file):
         for item in r:
             if(item != ' '):
                 cumulativelettercount+=1
-        print('letter count: {}....word count {}'.format(cumulativelettercount,cumulativewordcount+1))
+        print('letter count: {}\n word count: {}'.format(cumulativelettercount,cumulativewordcount))
     
      finally:
         file.close()
