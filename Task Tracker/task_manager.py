@@ -2,19 +2,7 @@ import time
 import uuid
 from services import IOFile
 
-def logcall(func):
-    def wrapper(*args,**kwargs):
-        results = func(args,kwargs)
-        print('results',results)
-        return("values arg:{} kwarg:{}".format(args,kwargs))
-    return wrapper
 
-def details(func):
-    def wrapper(*args,**kwargs):
-        result = func(*args,**kwargs)
-        print("Res",result)
-        return result
-    return wrapper
 
 
 class Task:
@@ -29,32 +17,15 @@ class Task:
         print(self)
 
 
-taskLists = []
 class TaskManager:
-
-
-
-    @details
-    def watch(self):
-        print("------------",taskLists)
-        for item in taskLists:
-            print(item)
-
-
+  
     def view_tasks(self):
         iof = IOFile()
         
 
     def add_task(self,title):
+        print("TITLE in add_task in TaskManager class",title)
         t = Task(title)
-
-        taskLists.append({
-            "id" : t.id,
-            "title" : t.title,
-            "createdAt": t.createdAt,
-            "done" : t.done,
-        }
-        )
         iof = IOFile()
         iof.add_content({
             "id" : t.id,
@@ -63,12 +34,6 @@ class TaskManager:
             "done" : t.done,
         })
         print("Added a task")
-    
-
-    
-        # return taskLists
-        # return watch(t)
-        
 
 
 
